@@ -80,7 +80,7 @@ class Typewriterbot(discord.Client):
             await channel.send(msg)
             return None
             
-        ``
+        
         #명령어 보여주기        
         if message.content == '!명령어':                                    
             channel = message.channel
