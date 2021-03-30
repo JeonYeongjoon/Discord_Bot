@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 load_dotenv(verbose=True)
 
 #디스코드 개발 토큰
-token = os.getenv('TOKEN')
+#token = os.getenv('ODIxMDA2ODg4OTAzNzcwMTEz.YE9cPw.5hYErrlCdb_kqi5QrEGr-yjkRDM')
+token = 'ODIxMDA2ODg4OTAzNzcwMTEz.YE9cPw.5hYErrlCdb_kqi5QrEGr-yjkRDM'
 
 #msg 초기화
 msg = None 
@@ -155,8 +156,8 @@ class Typewriterbot(discord.Client):
             return None       
         
         #타자 연습 
-        
-        if message.content == '!타자연습 영어':                              #타자연습 영어 시작
+        #타자연습 영어 시작
+        if message.content == '!타자연습 영어':                           
             channel = message.channel
             msg = "시작\n"
             msg += "<문장>"
@@ -165,6 +166,38 @@ class Typewriterbot(discord.Client):
                                                                   
             self.q = random.choice(t)
             await channel.send("============= 문제 ============\n!정답 입력후 정답을 입력해주세요 예(!정답 Hello world)")
+            await channel.send(self.q)
+            return None
+
+        if self.chatTest == "True": 
+            print(self.chatTest)
+            channel = message.channel
+            msg = message.content
+            
+            print(self.q)
+            print(message.content)
+    
+            if '!정답 ' + self.q == message.content:
+                await channel.send("정답")
+                print("정답")
+            else:
+                await channel.send("땡")
+                print("땡")
+
+            self.chatTest = "False"
+            return None
+
+
+        #타자연습 한글 시작
+        if message.content == '!타자연습 한글':     
+            channel = message.channel                         
+            msg = "시작\n"
+            msg += "<문장>"
+            self.chatTest = "True"
+            await channel.send(msg)
+                                                                  
+            self.q = random.choice(T)
+            await channel.send("============= 문제 ============\n!정답 입력후 정답을 입력해주세요 예(!정답 안녕하세요)")
             await channel.send(self.q)
             return None
 
