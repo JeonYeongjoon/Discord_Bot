@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv(verbose=True)
 
 #디스코드 개발 토큰
-#token = os.getenv('ODIxMDA2ODg4OTAzNzcwMTEz.YE9cPw.5hYErrlCdb_kqi5QrEGr-yjkRDM')
-token = 'ODIxMDA2ODg4OTAzNzcwMTEz.YE9cPw.5hYErrlCdb_kqi5QrEGr-yjkRDM'
+token = os.getenv('TOKEN')
+
 
 #msg 초기화
 msg = None 
