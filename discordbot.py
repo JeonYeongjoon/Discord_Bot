@@ -14,6 +14,7 @@ token = os.getenv('TOKEN')
 msg = None 
 x = None
 
+
 client = discord.Client()
 
 #타자연습 영어 문장들 15개
@@ -55,6 +56,7 @@ class Typewriterbot(discord.Client):
     chatTest = "False"
     channel = "NULL"
     q = "NULL"
+    
     print("debug ready")
     async def on_ready(self):
         game = discord.Game("!문제를 해결")
@@ -177,7 +179,7 @@ class Typewriterbot(discord.Client):
             print(self.q)
             print(message.content)
     
-            if '!정답 ' + self.q == message.content:
+            if '!정답 ' + self.q == message.content:    #정답 입력받기
                 await channel.send("정답")
                 print("정답")
             else:
@@ -209,20 +211,18 @@ class Typewriterbot(discord.Client):
             print(self.q)
             print(message.content)
     
-            if '!정답 ' + self.q == message.content:
+            if '!정답 ' + self.q == message.content:    #정답 입력받기
                 await channel.send("정답")
                 print("정답")
+                
             else:
                 await channel.send("땡")
                 print("땡")
+                 
 
             self.chatTest = "False"
             return None
-        #타자 시간 재기
-            #end = time.time()                                                   #종료시간을 기록
-            #et = end - start                                                    #실제시간을 기록
-            #~et = format(et, ".2f")                                              #소수점 둘째자리까지만 표시되도록 포멧팅
-
+           
 if __name__ == "__main__":
     client = Typewriterbot()
     client.run(token)    
